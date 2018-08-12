@@ -3,6 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
+import { GoogleNearby } from '@ionic-native/google-nearby';
 
 import { FirstRunPage } from '../pages';
 import { Settings } from '../providers';
@@ -29,9 +30,11 @@ import { Settings } from '../providers';
 export class MyApp {
   rootPage = FirstRunPage;
 
+
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
+    { title: 'ChiCoin Wallet', component: 'WalletPage' },
     { title: 'Tutorial', component: 'TutorialPage' },
     { title: 'Welcome', component: 'WelcomePage' },
     { title: 'Tabs', component: 'TabsPage' },
@@ -45,12 +48,33 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(
+    private translate: TranslateService,
+    platform: Platform, settings: Settings,
+    private config: Config,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen,
+    private googleNearby: GoogleNearby
+  ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+
+      let message = "Hello";
+
+      if (platform.is('cordova')) {
+      
+        alert("Listening for nearby attendees ");
+        this.googleNearby.subscribe().subscribe(result => {
+          alert(result);
+        });
+      }
+
+    
+
     });
     this.initTranslate();
   }
