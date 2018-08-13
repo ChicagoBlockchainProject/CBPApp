@@ -17,16 +17,19 @@ Deploy to android
 
 Proof of Attendance Algorithm
 =============================
-Proof of attendance uses BlueTooth/Audio to prove somebody is in attendance at an event. Unlike GPS (which can be spoofed), the algorithm proves you are there by other people “in the room” “seeing” you there.  A majority of people at the event need to confirm you are there. This data needs to be sent to a smart contract to calulate and come to consensus that you attended in a dectrlaized fashion and then fairly distrubte the tokens. Each Event must have a unique EventId. 
+Proof of attendance uses BlueTooth/Audio to prove somebody is in attendance at an event. Unlike GPS (which can be spoofed), the algorithm proves you are there by other people “in the room” “seeing” you there.  A majority of people at the event need to confirm you are there. This data needs to be sent to a smart contract to calulate and come to consensus that you attended in a decentralized fashion and then fairly distrubte the tokens. Each Event must have a unique EventId. 
 
 ### Translated to Tech
 
-Person = public/ private key pair 
+Person =  public/ private key pair 
+
 Saying "I'm Here! or PRESENT" = signing a message with the other parties public key
+<pre>
 {
 	myPublicKey: 0x55738495h34iu534u9534njk,
 	time: 8/16/2018 7:09:01 PM
 }
+</pre>
 
 You need to broadcast your public key so all attendees can sign messages before they send them to you. This is to prevent fake attendees claiming they are somebody else (i.e. checking in your buddy).  Only signed messages are valid, others are ignored. This should prevent some forms of Sybil attach
 
