@@ -1,7 +1,7 @@
 ChiCoin Wallet
 ==============
 
-<img height="400px" src="https://raw.githubusercontent.com/ntheile/chicoinapp/master/src/assets/img/app.jpg"/>
+<img height="500px" src="https://raw.githubusercontent.com/ntheile/chicoinapp/master/src/assets/img/app.jpg"/>
 
 Debug on web
 
@@ -84,4 +84,8 @@ The app uses Google NearBy, which is a foreground running process. If you come i
 
 
 ### Blockchain
-We want to fairly distribute ("mine") the tokens to the attendees in a decentralized fashion. We do not want to have a centralized treasurer to manually disperse the tokens in a centralzied way. This could lead to stealing or corruption or stealing. Therefore, we must use a Smart Contract that can handle a high data load for low/no transaction fee (since the token has no tangible monetary value... at this point). The way the token distribution stays honest is the fact that the data comes from everyone at the event in a distributed fashion...not just one person (like the teacher) taking attendance.  The only blockchain that I am aware of that can process this amount of data and transactions cheaply is EOS. The smart contract will need a few EOS tokens staked for the duration of the computation. The data can be stored as JSON in EOS's NoSQL storage after the event for a few hours hours or long enough for all the attedees to submit there lists (this should happen automatically when they close the app). After the event concludes and everybody submitted their request the smart contract can calcualte who attended and distribute the ChiCoin's to all who were present. After the event the data can be pruged from the EOS NoSQL stroage and the token's unstaked. It's FREE to run smart contracts. The only thing that needs payment is the initial EOS account for each attendee (it's free on the EOS Jungle Testnet). 
+We want to fairly distribute ("mine") the tokens to the attendees in a decentralized fashion. We do not want to have a centralized treasurer to manually disperse the tokens in a centralzied way. This could lead to stealing or corruption or stealing. 
+
+Therefore, we must use a Smart Contract that can handle a high data load for low/no transaction fee (since the token has no tangible monetary value... at this point). The way the token distribution stays honest is the fact that the data comes from everyone at the event in a distributed fashion...not just one person (like the teacher) taking attendance.  
+
+The only blockchain that I am aware of that can process this amount of data and transactions cheaply is EOS. The smart contract will need a few EOS tokens staked for the duration of the computation. The data can be stored as JSON in EOS's NoSQL storage after the event for a few hours hours or long enough for all the attedees to submit there lists (this should happen automatically when they close the app). After the event concludes and everybody submitted their request the smart contract can calcualte who attended and distribute the ChiCoin's to all who were present. After the event the data can be pruged from the EOS NoSQL stroage and the token's unstaked. It's FREE to run smart contracts. The only thing that needs payment is the initial EOS account for each attendee (it's free on the EOS Jungle Testnet). 
