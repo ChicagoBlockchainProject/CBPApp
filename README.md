@@ -73,14 +73,14 @@ Patrick
 
 ### Smart Contract
 
-    Nick = 3/4 => 75% => present
-    Joel = 1/4 => 25% => not present
-    Peter = 3/4 => present
-    Patrick = 2/4 => present
+    Nick = 3/4 => 75% => present +1 CHI
+    Joel = 1/4 => 25% => not present 0 CHI
+    Peter = 3/4 => present +1 CHI
+    Patrick = 2/4 => present +1 CHI
 
 What if you come in late?
 
-The app uses Google NearBy, which is a foreground running process. If you come in late you may not get attendance credit if less than 26% of the room is not using the app at that time. Therefore, we could make the app interactive and incentivise people to keep the app open during sessions. Maybe to ask question to a speaker? Or give tokens to a speaker for a good presentation? Or simple a thumbs up?
+The app uses Google NearBy, which is a foreground running process. If you come in late you may not get attendance credit if less than X% of the room is not using the app at that time. Therefore, we could make the app interactive and incentivise people to keep the app open during sessions. Maybe to ask question to a speaker? Or give tokens to a speaker for a good presentation? Or simple a thumbs up?
 
 
 ### Blockchain
