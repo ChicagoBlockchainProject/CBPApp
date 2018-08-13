@@ -25,6 +25,8 @@ export class WalletPage {
   name = "";
   bal = 0;
   nearbySub;
+  validators = [];
+  api = "https://api-ropsten.etherscan.io";
 
   constructor(
     public navCtrl: NavController,
@@ -44,7 +46,8 @@ export class WalletPage {
 
   setupEthAccount() {
     // set the provider you want from Web3.providers
-    let web3: any = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io"));
+    // https://rinkeby.infura.io
+    let web3: any = new Web3(new Web3.providers.HttpProvider(this.api));
 
     if (!localStorage.getItem('account')) {
 
@@ -71,8 +74,10 @@ export class WalletPage {
       this.bal = parseInt(localStorage.getItem('bal'));
     }
 
-    //let coinbase = web3.eth.coinbase;
-    //let balance = web3.eth.getBalance(coinbase);
+    // let coinbase = web3.eth.coinbase;
+    let balance = web3.eth.getBalance(this.account.address);
+
+    // web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback)
 
   }
 
@@ -145,6 +150,10 @@ export class WalletPage {
     });
 
     toast.present();
+  }
+
+  itemSelected(item){
+
   }
 
 }

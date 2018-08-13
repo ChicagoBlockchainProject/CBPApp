@@ -26,6 +26,13 @@
       <ion-label color="primary" floating>Enter your name</ion-label>
       <ion-input [(ngModel)]="name"></ion-input>
     </ion-item>
+
+    <ion-list>
+        <button ion-item *ngFor="let item of validators" (click)="itemSelected(item)">
+          {{ item }} validate you
+        </button>  
+      </ion-list>
+
   </div>
 
 
