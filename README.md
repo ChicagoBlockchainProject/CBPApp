@@ -31,9 +31,9 @@ Saying "I'm Here! or PRESENT" = signing a message with the other parties public 
 }
 </pre>
 
-You need to broadcast your public key so all attendees can sign messages before they send them to you. This is to prevent fake attendees claiming they are somebody else (i.e. checking in your buddy).  Only signed messages are valid, others are ignored. This should prevent some forms of Sybil attach
+You need to broadcast your public key so all attendees can sign messages before they send them to you. This is to prevent fake attendees claiming they are somebody else (i.e. checking in your buddy).  Only signed messages are valid, others are ignored. This should prevent some forms of Sybil attack.
 
-TODO - Are there ther Attach Vectors (Time Clock Skew attacks, 51%, Sybil etc...)
+TODO - Are there other Attach Vectors??? (Time Clock Skew attacks, 51%, Sybil etc...)
 
 ### Test Case (Nick and Patrick)
 
@@ -51,32 +51,32 @@ At the end of the Event everybody will "turn in the attendance list" to the Smar
 
 Nick
 
-I see Joel (Pub Key)
-I see Peter (Pub Key)
-I see Patrick (pub key)
+    I see Joel (Pub Key)
+    I see Peter (Pub Key)
+    I see Patrick (pub key)
 
 Joel
 
-I see Nick (Pub Key)
-I see Peter (Pub Key)
+    I see Nick (Pub Key)
+    I see Peter (Pub Key)
 
 Peter
 
-I see Nick (Pub Key)
-I see Patrick (pub key)
+    I see Nick (Pub Key)
+    I see Patrick (pub key)
 
 Patrick
 
-I see Nick (Pub Key)
-I see Peter (Pub Key)
+    I see Nick (Pub Key)
+    I see Peter (Pub Key)
 
 
 ### Smart Contract
 
-Nick = 3/4 => 75% => present
-joel = 1/4 => 25% => not present
-Peter = 3/4 => present
-Patrick = 2/4 => present
+    Nick = 3/4 => 75% => present
+    Joel = 1/4 => 25% => not present
+    Peter = 3/4 => present
+    Patrick = 2/4 => present
 
 What if you come in late?
 
