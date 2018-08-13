@@ -9,7 +9,8 @@
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
-    "android": "ionic cordova run android --device -l --debug"
+    "android": "ionic cordova run android --device -l --debug",
+    "deploy": "ionic cordova run android --device"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -38,6 +39,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "moment": "^2.22.2",
     "qrcode": "^1.2.2",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",

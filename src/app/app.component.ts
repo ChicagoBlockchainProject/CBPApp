@@ -63,18 +63,6 @@ export class MyApp {
       this.splashScreen.hide();
 
 
-      let message = "Hello";
-
-      if (platform.is('cordova')) {
-      
-        alert("Listening for nearby attendees ");
-        this.googleNearby.subscribe().subscribe(result => {
-          alert(result);
-        });
-      }
-
-    
-
     });
     this.initTranslate();
   }
