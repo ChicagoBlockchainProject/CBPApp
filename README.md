@@ -1,6 +1,8 @@
 ChiCoin Wallet
 ==============
 
+<img src="https://raw.githubusercontent.com/ntheile/chicoinapp/master/src/assets/img/app.jpg"/>
+
 Debug on web
 
 `ionic serve`
