@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>chicoin</name>
-    <description>An awesome Ionic/Cordova app.</description>
+<widget id="com.cbp.chicoin" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CHI</name>
+    <description>ChiCoin Wallet</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -85,5 +85,6 @@
     <plugin name="cordova-plugin-google-nearby" spec="^1.1.4">
         <variable name="API_KEY" value="AIzaSyD9Uwz_GEuRFOxRW-ihIuNo4_6JdzJkJEY" />
     </plugin>
+    <allow-navigation href="http://192.168.1.57:8100" />
     <engine name="android" spec="6.3.0" />
 </widget>

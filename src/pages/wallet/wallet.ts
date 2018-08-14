@@ -5,6 +5,7 @@ import qrcode from 'qrcode';
 import { GoogleNearby } from '@ionic-native/google-nearby';
 import { ToastController } from 'ionic-angular';
 import * as moment from 'moment';
+import { Attendee } from './../../models/attendee';
 
 /**
  * Generated class for the WalletPage page.
@@ -25,7 +26,7 @@ export class WalletPage {
   name = "";
   bal = 0;
   nearbySub;
-  validators = [];
+  public attendeeList = [] as Array<Attendee>;
   api = "https://api-ropsten.etherscan.io";
 
   constructor(
@@ -36,6 +37,13 @@ export class WalletPage {
     private toastCtrl: ToastController
   ) {
     this.registerNearbyLifecycle();
+     //let a = {} as Attendee;
+    // a.name = 'n';
+    // a.time = this.now();
+    // a.publicAddress ='this.account.address';
+    // this.attendeeList.push(a);
+    // this.attendeeList.push({name:'b', time: '1', publicAddress: '11'});
+ 
   }
 
   ionViewDidLoad() {
@@ -75,7 +83,7 @@ export class WalletPage {
     }
 
     // let coinbase = web3.eth.coinbase;
-    let balance = web3.eth.getBalance(this.account.address);
+    // let balance = web3.eth.getBalance(this.account.address);
 
     // web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback)
 
@@ -109,9 +117,14 @@ export class WalletPage {
     if (this.platform.is('cordova')) {
       // Get Data
       this.nearbySub = this.googleNearby.subscribe().subscribe(result => {
+        result = result.replace(/\\/g, "");
+        result = result.substring(1, result.length-1);
+        console.log(result);
         this.toast(result);
+        let a = JSON.parse(result);
         this.bal = this.bal + 1;
         localStorage.setItem('bal', this.bal.toString());
+        this.attendeeList.push(a);
       });
     }
   }
@@ -122,14 +135,21 @@ export class WalletPage {
       localStorage.setItem('name', this.name);
     }
 
+    let attendee = {
+      name: this.name,
+      time: this.now(),
+      publicAddress: this.account.address
+    }
+
     if (this.platform.is('cordova')) {
-      let now = moment().format('MMMM Do YYYY, h:mm:ss a');
-      let msg = now + ' Hello I am ';
-      if (this.name) {
-        msg = msg + this.name + " - ";
-      }
-      msg = msg + this.account.address;
-      this.googleNearby.publish(msg)
+
+      // let msg = now + ' Hello I am ';
+      // if (this.name) {
+      //   msg = msg + this.name + " - ";
+      // }
+      // msg = msg + this.account.address;
+
+      this.googleNearby.publish(JSON.stringify(attendee))
         .then((res: any) => {
           let msg = this.name + " sent message to nearby attendees!";
           this.toast(msg)
@@ -141,7 +161,7 @@ export class WalletPage {
   toast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 6000,
       position: 'top'
     });
 
@@ -154,6 +174,10 @@ export class WalletPage {
 
   itemSelected(item){
 
+  }
+
+  now(){
+    return moment().format('MMMM Do YYYY, h:mm:ss a');
   }
 
 }

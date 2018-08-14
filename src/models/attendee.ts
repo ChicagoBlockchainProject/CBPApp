@@ -9,11 +9,12 @@ import { DateTime } from "../../node_modules/ionic-angular/umd";
  * The Items service manages creating instances of Item, so go ahead and rename
  * that something that fits your app as well.
  */
-export class Validator {
+export class Attendee {
 
 
   public name: string;
-  public time: DateTime;
+  public time: string;
+  public publicAddress: string;
 
   constructor() {
    

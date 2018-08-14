@@ -1,12 +1,12 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "ChiCoin",
+  "short_name": "CHI",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/imgs/logo.png",
+    "src": "assets/imgs/cbp.jpeg",
     "sizes": "512x512",
-    "type": "image/png"
+    "type": "image/jpeg"
   }],
   "background_color": "#4e8ef7",
   "theme_color": "#4e8ef7"
