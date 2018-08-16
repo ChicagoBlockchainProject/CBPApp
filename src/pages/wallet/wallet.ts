@@ -6,6 +6,8 @@ import { GoogleNearby } from '@ionic-native/google-nearby';
 import { ToastController } from 'ionic-angular';
 import * as moment from 'moment';
 import { Attendee } from './../../models/attendee';
+import 'rxjs/add/operator/toPromise';
+
 
 /**
  * Generated class for the WalletPage page.
@@ -23,11 +25,12 @@ export class WalletPage {
 
   // https://web3js.readthedocs.io/en/1.0/web3-eth-accounts.html
   account;
+  eth = 0;
   name = "";
   bal = 0;
   nearbySub;
   public attendeeList = [] as Array<Attendee>;
-  api = "https://api-ropsten.etherscan.io";
+  api = "https://ropsten.infura.io/v3/324440bb7e154822848fbe7cd1b052c3";
 
   constructor(
     public navCtrl: NavController,
@@ -52,7 +55,7 @@ export class WalletPage {
     this.setupNearby();
   }
 
-  setupEthAccount() {
+  async setupEthAccount() {
     // set the provider you want from Web3.providers
     // https://rinkeby.infura.io
     let web3: any = new Web3(new Web3.providers.HttpProvider(this.api));
@@ -83,10 +86,21 @@ export class WalletPage {
     }
 
     // let coinbase = web3.eth.coinbase;
-    // let balance = web3.eth.getBalance(this.account.address);
+    web3.eth.getBalance(this.account.address).then( (wei)=>{      
+      let balance = web3.utils.fromWei(wei, 'ether');
+      this.eth = balance;
+      console.log(balance + " ETH");
+    });
 
     // web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback)
 
+  }
+
+  async submitAttendanceListToBlockChain(){
+    // ETH
+    // https://stackoverflow.com/questions/48184969/calling-smart-contracts-methods-using-web3-ethereum
+
+    // EOS
   }
 
   ionViewDidLeave() {
