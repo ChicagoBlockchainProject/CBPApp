@@ -15,7 +15,7 @@ Deploy to android
 
 `npm run deploy`
 
-Proof of Attendance Algorithm
+Proof of Presence (PoP) Algorithm
 =============================
 Proof of attendance uses BlueTooth/Audio to prove somebody is in attendance at an event. Unlike GPS (which can be spoofed), the algorithm proves you are there by other people “in the room” “seeing” you there.  A majority of people at the event need to confirm you are there. This data needs to be sent to a smart contract to calulate and come to consensus that you attended in a decentralized fashion and then fairly distrubte the tokens. Each Event must have a unique EventId. 
 
