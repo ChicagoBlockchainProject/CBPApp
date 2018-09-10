@@ -17,7 +17,7 @@ Deploy to android
 
 Proof of Presence (PoP) Algorithm
 =============================
-Proof of Presence uses BlueTooth/Audio to prove somebody is in attendance at an event. Unlike GPS (which can be spoofed), the algorithm proves you are there by other people confirming that you are present. Bluetooth and audio validation work as multi-factor authentication, before the PoP settles on a blockchain. A majority of people at the event need to confirm you are there. This data needs to be sent to a smart contract to calulate and come to consensus that you attended in a decentralized fashion and then fairly distrubte the tokens. Each event must have a unique EventId. 
+Proof of Presence uses BlueTooth/Audio to prove somebody is in attendance at an event. Unlike GPS (which can be spoofed), the algorithm proves you are there by other people confirming that you are present. Bluetooth and audio validation work as multi-factor authentication before the PoP settles on a blockchain. A majority of people at the event need to confirm you are there. This data needs to be sent to a smart contract to calulate and come to consensus that you attended in a decentralized fashion and then fairly distrubte the tokens. Each event must have a unique EventId. 
 
 ### Translated to Tech
 
@@ -39,10 +39,10 @@ TODO - Are there other Attach Vectors??? (Time Clock Skew attacks, 51%, Sybil et
 
 ####  "I'm Here!"
 
-Lets say, Nick, enters an event with 10 people. When Nick walks in, he will probably receive 10 public keys (representing the 10 other people). He loops thru the 10 public keys and signs a message that he is "present". Nick's phone uses Google Nearby to broadcast the message to the 10 other people near him. 
+Lets say, Nick, enters an event with 10 people. When Nick PoPs in, he will probably receive 10 public keys (representing the 10 other people). He loops through the 10 public keys and signs a message that he is "present". Nick's phone uses Google Nearby to broadcast the message to the 10 other people near him. 
 
 #### "Hi! Ill add you to the Attendance List"
-When Patrick receives a "Presence" request from Nick he decrypts the signed message proving it came from you (and not Ferris Bueller "sick" from home). Patrick adds Nick to his "attendance List". * Note - the Nearby api can filter out messages that are not intended for you (i.e. if its not signed to your public key). This will save on bandwidth, since NearBy broadcasts to everybody in the room via BLE/Audio but transmits the encrypted data via network. Eventually 
+When Patrick receives a "Presence" request from Nick he decrypts the signed message proving it came from you (and not Ferris Bueller "sick" from home). Patrick adds Nick to his "attendance List". * Note - the Nearby api can filter out messages that are not intended for you (i.e. if its not signed to your public key). This will save on bandwidth, since NearBy broadcasts to everybody in the room via Bluetooth/Audio, but transmits the encrypted data via network. Eventually 
 Patrick builds up a list with everybody, or most, people at the event. 
 
 #### "Turn in the list to the smart contract"
